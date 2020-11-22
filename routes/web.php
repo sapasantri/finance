@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/bulan', [App\Http\Controllers\MonthController::class, 'index'])->name('bulan');
-Route::get('/student', [App\Http\Controllers\StudentController::class, 'index'])->name('student');
+Route::get('/student/{params}', [StudentController::class, 'index']);
 
 Auth::routes();
 

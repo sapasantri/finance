@@ -12,7 +12,7 @@ class Student extends Model
     protected $table = 'students';
 
     protected $appends = ['village_id' => 'village'];
-    protected $hidden = ['created_at', 'updated_at'];
+    protected $hidden = ['created_at', 'updated_at', 'village_id'];
 
     public function getVillageAttribute()
     {

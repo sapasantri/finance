@@ -2,13 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Student;
 use Illuminate\Http\Request;
+
+use App\Models\Student;
+use App\Repositories\StudentRepository;
 
 class StudentController extends Controller
 {
-    public function index()
+    protected $student;
+
+    public function __construct(StudentRepository $student)
     {
-        return Student::all();
+        $this->student = $student;
+    }
+
+    public function index($params)
+    {
+        // return Student::all();
+        return $this->student->findBy('full_name', $params);
     }
 }
