@@ -24,6 +24,7 @@ class CreateStudentsTable extends Migration
             $table->mediumText('hobby');
             $table->mediumInteger('phone');
             $table->enum('active', array('active', 'inactive'));
+            $table->Text('address');
             $table->timestamps();
         });
     }
