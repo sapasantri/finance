@@ -22,10 +22,17 @@ class CreateStudentsTable extends Migration
             $table->string('place_of_birth');
             $table->date('date_of_birth');
             $table->mediumText('hobby');
-            $table->mediumInteger('phone');
+            $table->String('phone');
             $table->enum('active', array('active', 'inactive'));
+            $table->char('village_id', 10);
             $table->Text('address');
             $table->timestamps();
+
+            $table->foreign('village_id')
+            ->references('id')
+            ->on(config('laravolt.indonesia.table_prefix').'villages')
+            ->onUpdate('cascade')->onDelete('restrict');
+
         });
     }
 
